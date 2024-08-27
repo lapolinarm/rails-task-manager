@@ -1,7 +1,12 @@
-<h1>My Tasks</h1>
-<% @tasks.each do |task| %>
 <div>
-  <%= check_box_tag "task_ids[]", task.id, task.completed %>
-  <%= label_tag "task_ids_#{task.id}", task.title %>
+  <h1>My Tasks</h1>
+  <% @tasks.each do |task| %>
+  <div>
+    <%= check_box_tag "task_ids[]", task.id, task.completed %>
+    <%= link_to task.title, "/tasks/#{task.id}" %>
+  </div>
+  <% end %>
+  <div>
+    <%= link_to 'Add a new task', '/tasks/new' %>
+  </div>
 </div>
-<% end %>
